@@ -94,6 +94,7 @@ namespace ICT3101_Calculator
             //    return (num1 / num2);
             //test change
             //change 2
+            //change again gosh
             if (num1 == 0 && num2 == 0)
                 return 1;
 
