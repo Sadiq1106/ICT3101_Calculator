@@ -1,5 +1,6 @@
 using NUnit.Framework;
-
+using System.IO;
+using System;
 
 namespace ICT3101_Calculator.UnitTests
 {
@@ -219,6 +220,14 @@ namespace ICT3101_Calculator.UnitTests
             // Act 
             // Assert
             Assert.That(() => _calculator.UnknownFunctionB(4, 5), Throws.ArgumentException);
+        }
+
+        [Test]
+        [TestCase(5)]
+        public void GetMagicNumber_WhenInputNumber1_ReturnNumberInFile(int p0)
+        {
+            IFileReader fileReader = new FileReader();
+            Assert.That(_calculator.GenMagicNum(p0, fileReader), Is.EqualTo(12));
         }
 
 
