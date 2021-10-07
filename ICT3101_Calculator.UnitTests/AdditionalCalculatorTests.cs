@@ -17,12 +17,12 @@ namespace ICT3101_Calculator.UnitTests
         { 
             _mockFileReader = new Mock<IFileReader>();
             _mockFileReader.Setup(fr => 
-                fr.Read("C:\\Users\\sadiq\\Documents\\GitHub\\ICT3101_Calculator\\ICT3101_Calculator\\ICT3101_Calculator\\MagicNumbers.txt")).Returns(new string[2]{ "42","42"});
+                fr.Read("MagicNumbers.txt")).Returns(new string[2]{ "42","42"});
             _calculator = new Calculator(); 
         }
 
         [Test]
-        [TestCase(0)]
+        [TestCase(42)]
         public void GetMagicNumber_WhenInputNumber1_ReturnNumberInFile(int p0)
         {
             //IFileReader fileReader = new FileReader();
