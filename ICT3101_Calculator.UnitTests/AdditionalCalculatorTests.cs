@@ -17,17 +17,25 @@ namespace ICT3101_Calculator.UnitTests
         { 
             _mockFileReader = new Mock<IFileReader>();
             _mockFileReader.Setup(fr => 
-                fr.Read("MagicNumbers.txt")).Returns(new string[2]{ "42","42"});
+                fr.Read(@"MagicNumbers.txt")).Returns(new string[5]{ "11","12","13","-14","-15"});
             _calculator = new Calculator(); 
         }
 
         [Test]
-        [TestCase(42)]
-        public void GetMagicNumber_WhenInputNumber1_ReturnNumberInFile(int p0)
+        [TestCase(1)]
+        public void GetMagicNumber_WhenPositiveNumber_ReturnNumberInFile(int p0)
+        {
+            IFileReader fileReader = _mockFileReader.Object;
+            Assert.That(_calculator.GenMagicNum(p0, fileReader), Is.EqualTo(24));
+        }
+        [Test]
+        [TestCase(3)]
+        public void GetMagicNumber_WhenInputNumber_ReturnNumberInFile(int p0)
         {
             //IFileReader fileReader = new FileReader();
             IFileReader fileReader = _mockFileReader.Object;
-            Assert.That(_calculator.GenMagicNum(p0, fileReader), Is.EqualTo(0));
+            Assert.That(_calculator.GenMagicNum(p0, fileReader), Is.EqualTo(28));
         }
+
     }
 }

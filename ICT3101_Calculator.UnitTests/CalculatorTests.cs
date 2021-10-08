@@ -221,15 +221,20 @@ namespace ICT3101_Calculator.UnitTests
             // Assert
             Assert.That(() => _calculator.UnknownFunctionB(4, 5), Throws.ArgumentException);
         }
-
         [Test]
-        [TestCase(5)]
-        public void GetMagicNumber_WhenInputNumber1_ReturnNumberInFile(int p0)
+        [TestCase(1)]
+        public void GetMagicNumber_WhenPositiveNumber_ReturnNumberInFile(int p0)
         {
             IFileReader fileReader = new FileReader();
-            Assert.That(_calculator.GenMagicNum(p0, fileReader), Is.EqualTo(12));
+            Assert.That(_calculator.GenMagicNum(p0, fileReader), Is.EqualTo(24));
         }
-
+        [Test]
+        [TestCase(3)]
+        public void GetMagicNumber_WhenNegativeNumber_ReturnNumberInFile(int p0)
+        {
+            IFileReader fileReader = new FileReader();
+            Assert.That(_calculator.GenMagicNum(p0, fileReader), Is.EqualTo(28));
+        }
 
     }
 }
