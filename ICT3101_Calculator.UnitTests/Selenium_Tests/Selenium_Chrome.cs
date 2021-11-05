@@ -33,6 +33,7 @@ namespace ICT3101_Calculator.UnitTests.Selenium_Tests
             IWebElement searchBox = _driver.FindElement(By.CssSelector("[name = 'q']"));
             searchBox.SendKeys("2 + 2" + Keys.Return);
             //System.Threading.Thread.Sleep(1000);
+            //for travis commit
             //Assert---------------------------/
             IWebElement calcAnswer = _driver.FindElement(By.Id("cwos"));
             Assert.That(calcAnswer.Text, Is.EqualTo("4"));
